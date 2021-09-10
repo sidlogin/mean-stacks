@@ -1,0 +1,16 @@
+<div class="container">
+  <form (submit)="onAddPost(postForm)" #postForm="ngForm">
+    <mat-card>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <input matInput type="text" ngModel name="title" placeholder="Enter Title" required minlength="5" #title="ngModel" autocomplete="off"/>
+        <mat-error *ngIf="title.invalid">Please enter the title!</mat-error>
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <textarea matInput rows="6" ngModel name="content" placeholder="Add the content" required #content="ngModel"></textarea>
+        <mat-error *ngIf="content.invalid">Please enter the content!</mat-error>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Save Post</button>
+    </mat-card>
+    <app-post-list></app-post-list>
+  </form>
+</div>
